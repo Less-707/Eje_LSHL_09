@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"  lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado</title>
+</head>
+<body>
+<h1>Listado de entrenadores</h1>
+<a th:href="@{/}">Regresar</a> | <a th:href="@{/entrenadores/nuevo}">Agregar entrenador</a>
+<br>
+<br>
+<table border="1">
+    <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Experiencia</th>
+        <th>Edad</th>
+        <th>Acciones</th>
+    </tr>
+    <tbody>
+    <tr th:each="entrenador:${entrenadores}">
+        <td th:text=" ${entrenador.id}"></td>
+        <td th:text="${entrenador.nombre}"></td>
+        <td th:text="${entrenador.experiencia}"></td>
+        <td th:text="${entrenador.edad}"></td>
+        <td>
+            <a th:href="@{'/entrenadores/actualizar/'+${entrenador.getId()}}">Actualizar |</a>
+            <a th:href="@{'/entrenadores/eliminar/confirmar/' + ${entrenador.id}}">Eliminar</a>
+            <!-- <a th:href="@{'/materias/eliminar/'+${materia.getId()}}">Eliminar</a>-->
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

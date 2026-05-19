@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<h1>Nuevo jugador</h1>
+<form th:action="@{/jugadores/guardar}" th:object="${jugador}" method="post">
+
+    <label>Nombre:</label>
+    <input type="text" th:field="*{nombre}" required><br>
+
+    <label> Posicion:</label>
+    <input type="text" th:field="*{posicion}" required><br>
+
+    <label>Numero:</label>
+    <input type="number" th:field="*{numero}" required><br>
+
+    <input type="submit" value="Guardar">
+    <a th:href="@{/jugadores}">Cancelar</a>
+</form>
+</body>
+</html>

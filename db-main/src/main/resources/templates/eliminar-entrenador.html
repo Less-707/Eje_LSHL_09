@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<h1>¿Eliminar entrenador?</h1>
+<p>¿Estas seguro de que deseas eliminar a: <strong th:text="${entrenador.nombre}"></strong>?</p>
+
+<form th:action="@{/entrenadores/eliminar/{id}(id=${entrenador.id})}" method="post">
+  <input type="submit" value="Si, eliminar definitivamente">
+  <a th:href="@{/entrenadores}">No, cancelar y volver</a>
+</form>
+</body>
+</html>
